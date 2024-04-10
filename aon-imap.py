@@ -106,7 +106,7 @@ def main():
             count_emails_from_sender(sender_email, credentials_list)
             os.system('cls' if os.name == 'nt' else 'clear')
         elif choice == '3':
-            print("EXITTING.")
+            print("Program quitted.")
             break
         else:
             print("INVALID, try again.")
