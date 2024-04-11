@@ -1,5 +1,6 @@
 import os
 import imaplib
+import time
 
 IMAP_SERVER = 'imap.a1.net'
 IMAP_PORT = 143
@@ -25,6 +26,7 @@ def show_menu():
 
 def check_credentials(credentials_list):
     updated_credentials_list = []
+    counter = 0
     for credentials in credentials_list:
         username, password = credentials.strip().split(':')
         try:
@@ -42,6 +44,12 @@ def check_credentials(credentials_list):
                 updated_credentials_list.append(credentials)
         else:
             updated_credentials_list.append(credentials)
+
+        counter += 1
+        if counter % 4 == 0:
+          print(" \nINFO: System always makes a break after 4 rows.")
+          print("WARNING: Dont disable, it may effect the performance\n ")
+          time.sleep(10)  # Set Pause
 
     with open('combo.txt', 'w') as file:
         file.writelines(updated_credentials_list)
@@ -92,7 +100,7 @@ def count_emails_from_sender(sender_email, credentials_list):
 def main():
     while True:
         show_menu()
-        choice = input("choose one option: ")
+        choice = input("Choose one option: ")
         if choice == '1':
             with open('combo.txt', 'r') as file:
                 credentials_list = file.readlines()
@@ -101,7 +109,7 @@ def main():
             with open('combo.txt', 'r') as file:
                 credentials_list = file.readlines()
 
-            sender_email = input("Mail: ")
+            sender_email = input("? Mail: ")
 
             count_emails_from_sender(sender_email, credentials_list)
             os.system('cls' if os.name == 'nt' else 'clear')
