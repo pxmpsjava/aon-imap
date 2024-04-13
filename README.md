@@ -7,8 +7,8 @@
 - 3: Only do this step if you are facing with errors -> type: "pip install -r requirements.txt" in console or install imaplib
 
 ## Attention:
-- There are two versions: v1 and v2.
-- i personally recommend v2 to check bigger files, use v1 if want check low amount like 50
+- There are two versions: V1 and V2.
+- V2 is way better for checking but requires SOCKS5 to work
 
 ## TOS
 - I am not responsible how you use my development.
